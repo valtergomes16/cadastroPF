@@ -118,5 +118,6 @@ interface PersonDaoInterface {
     public function update(Person $p);
     public function delete($cpf);
     public function findByCpf($cpf);
+    public function search($search);
 
 }

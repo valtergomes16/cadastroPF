@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-nav {
+nav.navbar {
     height: 100px;
     background-color: #395a4f;
 }
@@ -34,14 +34,34 @@ nav .nav-link:hover::after {
 main {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    min-height: 400px;
 }
 
 h1 {
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     font-size: 35px;
-    margin: 15px;
+    margin: 16px;
+}
+
+h5 {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+}
+
+.search {
+    display: flex;
+    background-color: white;
+    margin: 0;
+}
+
+.search .btn {
+    background-color: #395a4f;
+    color: white;
+}
+
+.search .btn:hover {
+    background-color: #304e44;
 }
 
 table {
@@ -59,12 +79,39 @@ th {
     background-color: #f2f2f2;
 }
 
+.link {
+    text-decoration: none;
+    color: #212529;
+}
+
+.link:hover {
+    text-decoration: none;
+    color: #ffc107;
+}
+
 form {
     min-width: 400px;
-    margin: 30px 20px;
+    margin: 10px 20px 30px 20px;
     padding: 20px;
     background-color: #f2f2f2;
     border-radius: 15px;
+}
+
+.lerCadastro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.lerCadastro h1 {
+    font-size: 20px;
+    margin: 8px;
+}
+
+.lerCadastro p {
+    padding: 8px;
+    margin: 0;
 }
 
 footer {
@@ -77,5 +124,5 @@ footer p, footer a {
 }
 
 footer a:hover {
-    color: rgb(31, 31, 31);
+    color: #212529;
 }

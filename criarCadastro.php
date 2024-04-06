@@ -39,7 +39,5 @@ $personDao->create($person);
 
 // Listando
 
-$personDao->read();
-
 header("Location: /");
 exit();

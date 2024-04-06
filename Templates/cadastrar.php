@@ -2,6 +2,7 @@
 
 <main>
     <div class="container">
+        <h1>Cadastrar</h1>
         <form action="../criarCadastro.php" method="POST">
             <div class="mb-3">
                 <label for="fullName" class="form-label">Nome Completo</label>

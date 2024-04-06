@@ -109,4 +109,19 @@ class PersonDao implements PersonDaoInterface {
 
     }
 
+    public function search($search) {
+        // Limpar a palavra-chave de entrada para evitar injeção de SQL
+        $search = '%' . $search . '%'; // Adiciona wildcards para corresponder a qualquer parte do nome
+        
+        // Consultar o banco de dados para recuperar os registros que correspondem à palavra-chave
+        $sql = "SELECT * FROM sua_tabela WHERE full_name LIKE :search OR cpf LIKE :search";
+        $stmt = Connection::getConnection()->prepare($sql);
+        $stmt->bindParam(':search', $search, \PDO::PARAM_STR);
+        $stmt->execute();
+        
+        // Retornar os resultados da consulta
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+    
+
 }
