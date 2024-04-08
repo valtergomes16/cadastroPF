@@ -28,7 +28,7 @@ if(isset($_POST['submit'])) {
     if($person) {
         // Atualizar os dados do objeto $person
         $person->setFullName($full_name);
-        $person->setCpf($cpf);
+        // $person->setCpf($cpf);
         $person->setBirthDate($birth_date);
         $person->setStreetAddress($street_address);
         $person->setStreetNumber($street_number);
@@ -66,7 +66,7 @@ require_once("Templates/header.php");
     
             <div class="mb-3">
                 <label for="cpf" class="form-label">CPF</label>
-                <input type="text" class="form-control" id="cpf" name="cpf" value="<?php echo $person ? $person->getCpf() : ''; ?>">
+                <input type="text" class="form-control" id="cpf" name="cpf" value="<?php echo $person ? substr($person->getCpf(), 0, 3) . '.' . substr($person->getCpf(), 3, 3) . '.' . substr($person->getCpf(), 6, 3) . '-' . substr($person->getCpf(), -2) : ''; ?>" disabled>
             </div>
     
             <div class="mb-3">

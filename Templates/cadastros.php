@@ -36,8 +36,18 @@
         <?php foreach ($personDao->read() as $person): ?>
             <tr>
                 <td><a href="../listar.php?cpf=<?php echo $person['cpf']; ?>" class="link"><?php echo $person['full_name']; ?></a></td>
-                <td><?php echo $person['cpf']; ?></td>
-                <td><?php echo $person['birth_date']; ?></td>
+                <td>
+                    <?php 
+                        $cpf = $person['cpf'];
+                        echo substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($cpf, 6, 3) . '-' . substr($cpf, -2);
+                    ?>
+                </td>
+                <td>
+                    <?php 
+                        $birth = explode("-", $person['birth_date']); 
+                        echo $birth[2]."/".$birth[1]."/".$birth[0];
+                    ?>
+                </td>
                 <td>
                     <?php
                         echo $person['street_address'] . ", " . $person['street_number'] /*.
@@ -46,8 +56,18 @@
                         ", " . $person['zip_code']*/;
                     ?>
                 </td>
-                <td><?php echo $person['cell_phone']; ?></td>
-                <td><?php echo $person['telephone']; ?></td>
+                <td>
+                    <?php 
+                        $cell_phone = $person['cell_phone'];
+                        echo '(' . substr($cell_phone, 0, 2) . ') ' . substr($cell_phone, 2, 5) . '-' . substr($cell_phone, 7, 4);
+                    ?>
+                </td>
+                <td>
+                    <?php 
+                        $telephone = $person['telephone'];
+                        echo $telephone ? '(' . substr($telephone, 0, 2) . ') ' . substr($telephone, 2, 4) . '-' . substr($telephone, 6, 4) : "";
+                    ?>
+                </td>
                 <td><?php echo $person['email']; ?></td>
                 <td>
                     <a href="../editarCadastro.php?cpf=<?php echo $person['cpf']; ?>" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i> Editar</a>
