@@ -1,6 +1,6 @@
 <?php
-require_once "Model/Person.php";
-require_once "Dao/PersonDao.php";
+require_once("Model/Person.php");
+require_once("Dao/PersonDao.php");
 
 $cpf = $_GET['cpf'];
 

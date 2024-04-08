@@ -1,7 +1,7 @@
 <?php
 
-require_once "Model/Person.php";
-require_once "Dao/PersonDao.php";
+require_once("Model/Person.php");
+require_once("Dao/PersonDao.php");
 
 $full_name = filter_input(INPUT_POST, "fullName");
 $cpf = filter_input(INPUT_POST, "cpf");
@@ -20,7 +20,13 @@ $email = filter_input(INPUT_POST, "email");
 $person = new Person;
 
 $person->setFullName($full_name);
-$person->setCpf($cpf);
+if(strlen($cpf === 11)):
+    $person->setCpf($cpf);
+else:
+    $erro = "Cpf deve ter 11 dígitos";
+    header("Location: Templates/cadastrar.php");
+    exit();
+endif;
 $person->setBirthDate($birth_date);
 $person->setStreetAddress($street_address);
 $person->setStreetNumber($street_number);
@@ -34,10 +40,10 @@ $person->setTelephone($telephone);
 $person->setEmail($email);
 
 // Criando cadastro
-$personDao = new PersonDao;
-$personDao->create($person);
+// $personDao = new PersonDao;
+// $personDao->create($person);
 
 // Listando
 
-header("Location: /");
-exit();
+// header("Location: /");
+// exit();

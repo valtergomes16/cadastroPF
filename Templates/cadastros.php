@@ -1,6 +1,6 @@
 <?php 
-    require_once "Model/Person.php";
-    require_once "Dao/PersonDao.php";
+    require_once("Model/Person.php");
+    require_once("Dao/PersonDao.php");
 
     $personDao = new PersonDao;
     $personDao->read();
@@ -10,7 +10,7 @@
 
 <main>
     <div class="d-flex">
-        <h1>Listagem de Cadastros</h1>
+        <h1>Lista de Cadastros</h1>
         <form action="../search.php" method="GET" class="search" role="search">
             <input class="form-control me-2" type="search" name="search" placeholder="Pesquise por algum cadastro" aria-label="Search">
             <button class="btn" type="submit">Pesquisar</button>
@@ -35,7 +35,7 @@
         </tr>
         <?php foreach ($personDao->read() as $person): ?>
             <tr>
-                <td><a href="../lerCadastro.php?cpf=<?php echo $person['cpf']; ?>" class="link"><?php echo $person['full_name']; ?></a></td>
+                <td><a href="../listar.php?cpf=<?php echo $person['cpf']; ?>" class="link"><?php echo $person['full_name']; ?></a></td>
                 <td><?php echo $person['cpf']; ?></td>
                 <td><?php echo $person['birth_date']; ?></td>
                 <td>

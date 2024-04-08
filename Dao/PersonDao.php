@@ -116,11 +116,11 @@ class PersonDao implements PersonDaoInterface {
         // Consultar o banco de dados para recuperar os registros que correspondem à palavra-chave
         $sql = "SELECT * FROM sua_tabela WHERE full_name LIKE :search OR cpf LIKE :search";
         $stmt = Connection::getConnection()->prepare($sql);
-        $stmt->bindParam(':search', $search, \PDO::PARAM_STR);
+        $stmt->bindParam(':search', $search, PDO::PARAM_STR);
         $stmt->execute();
         
         // Retornar os resultados da consulta
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
 
